@@ -21,6 +21,9 @@ jobs:
           distribution: 'adopt'
           java-version: '11'
 
+      - name: Install unzip
+        run: sudo apt-get update && sudo apt-get install -y unzip
+
       - name: Run Security Scan
         run: |
           curl -LO https://github.com/jeremylong/DependencyCheck/releases/download/v6.5.3/dependency-check-6.5.3-release.zip
@@ -28,8 +31,9 @@ jobs:
           ./dependency-check/bin/dependency-check.sh --project JavaSecurityCheck --scan ./ --format HTML --out report --disableAssembly -v
 
       - name: Upload Report
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: security-report
           path: report
+
 
