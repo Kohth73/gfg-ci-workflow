@@ -35,5 +35,8 @@ jobs:
         with:
           name: security-report
           path: report
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 5ad8914 (Add Security Checks GitHub Actions workflow with updated upload-artifact v4)
